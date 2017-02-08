@@ -2,13 +2,36 @@
   function scTop(){
  $(".msgs").animate({scrollTop:$(".msgs")[0].scrollHeight});
 }
-function load_new_stuff(){
+function load_new_stuff(interv){
     
- localStorage['lpid']=$(".msgs .msg:last").attr("title");
+    var hook, data_to_transfer;
     
- $(".msgs").load("msgs.php", {'last_id' : $('.messages').last().attr('data-message-id')}, function(){
-  
-     if(localStorage['lpid'] != $(".msgs .msg:last").attr("title")){
+    console.log(interv);
+    
+ if (interv > 0) {
+     //first move the data outside the .new-msgs div
+     //Load new data if any in .new-msgs
+     
+     hook = ".new-msgs";
+     data_to_transfer = $(hook)[0].innerHTML;
+     
+     console.log(data_to_transfer);
+     $(hook).before(data_to_transfer);
+     $(hook).remove('.messages');
+     
+ } else {
+     hook = ".msgs";
+     
+ }
+    
+ localStorage['lpid']=$(hook + " .msg:last").attr("title");
+    console.log(hook);
+    
+ $(".new-msgs").load("msgs.php", {'last_id' : $('.msgs .messages').last().attr('data-message-id')}, function(){
+    
+     
+     
+     if(localStorage['lpid'] != $(hook + " .msg:last").attr("title")){
         scTop();
     }
  });
@@ -18,7 +41,9 @@ function load_new_stuff(){
 }
 
   
-  
+  function clear_hook() {
+      
+  }
   
   
   function send_to_db(){
@@ -81,8 +106,10 @@ $(document).ready(function(){
 	 
 	  
   });
-  
-var tn= setInterval(function(){
- load_new_stuff();
-},3000);
+  var interv = 0;
 
+var tn= setInterval(function(){
+ load_new_stuff(interv);
+    
+    interv++;
+},3000);

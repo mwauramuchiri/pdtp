@@ -175,19 +175,19 @@ text-transform:uppercase;
 
 .messages{ 
  font-size:16px;   
-   display: flex;
+   display: block;
    width:98%;
    background:#ffffff;
-       border-radius: 10px;
-	   margin-bottom:5px;
-    box-shadow: -1px 2px 0px #e5e5e5;
+       border-radius: 5px;
+	   margin-bottom: 6px;
+    box-shadow: -1px 1px 0px #e5e5e5;
 	padding-left:2%;
 	padding-bottom:2%;
      
 }
 
 .replyy2{ 
-   margin-left:13%;
+   margin-left:20px;
       background:#effdde;
 	  width:50%;
 	  border-radius: 10px;

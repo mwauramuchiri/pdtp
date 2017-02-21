@@ -39,149 +39,64 @@ header('Location:rooms.php');
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
-  <title>Pass it on</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  
-  
-    <link href="bootstrap.css" rel="stylesheet"/>
-  <link href="bootstrap-responsive.css" rel="stylesheet"/>
-
-  </head>
+    <meta charset="UTF-8">
+    <title>Pass it on</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="materialize.css"/>
+</head>
 
 <body>
-   <div class="container">
-   <div class="row-fluid">
-  <div class="hero-unit-header">
-            <div class="container">
-                <div class="row-fluid">  
-				<h1> <center><img src="header.png"></center></h1>
-   
-   </div>
-   </div>
-   </div>
-   
-   
-   <div class="span4">
-      
-	  
-	     <div class="hero-unit-3">
-                    <div class="alert-index alert-success">
-					<h3>Welcome to Ementoring Africa</h3>
-                        <i class="icon-calendar icon-large"></i>
-                        <?php
-                        $Today = date('y:m:d');
-                        $new = date('l, F d, Y', strtotime($Today));
-                        echo $new;
-                        ?>
+    <main>
+        
+        <br>
+        <br>
+        <div class="container">
+            <a href="#" class="brand-logo">
+                <img  width="100%" src="header.png">
+            </a>
+            <br>
+            <br>
+            <h4>Welcome to Ementoring Africa</h4>
+            <h6 class="secondary-title">
+                <?php
+                $Today = date('y:m:d');
+                $new = date('l, F d, Y', strtotime($Today));
+                echo $new;
+                ?>
+            </h6>
+            
+            <div class="row">
+                <form method="post" action="index.php">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col s12 input-field">
+                                <p>Please provide your username and password</p>
+                            </div>
+                            <div class="col s12 input-field">
+                                <input type="text" name="username" id="username" required="required" />
+                                <label for="username">Username / Email :</label>
+                            </div>
+                            <div class="col s12 input-field">
+                                <input type="password" name="password" required="required" />
+                                <label for="password">Password:</label>
+                            </div>
+                            <div class="col s12 input-field">
+                                <button class="btn" type="submit" name="submit">Login</button>
+                            </div>
+                            <div class="col s12 input-field">
+                            <br>
+                                <a class="" href="register.php">Register</a>
+                                <br>
+                                <a class="" href="forgot_password.php" >Forgot password</a>
+
+                            </div>
+                        </div>
                     </div>
-					
-	
-                </div>
-                </div>
-   
-   
-   
-  
-  <div class="span6">
-  
-       <div class="hero-unit-3">
-                    <div class="alert-index alert-success">
-  
-    <div class="container">
-        <div class="row-fluid">
-  
-		<table align="left" width="30%" >
-	
-    <form method="post" action="">
-	
-	 
-	<div class="control-group">
-	<p>Please provide your username and password:</p>
-	<tr>
-	
-	<td>
-	
-	   <label class="control-label" for="inputPassword">Username / Email :</label>
-	
-	</td>
-	
-    	<td>
-		
-		
-		  <div class="controls">
-		<input type="text" name="username" placeholder="Username" required="required" />
-		
-		</div>
-		
-		</td>
-		
-		</tr>
-		
-		</div>
-		
-			<div class="control-group">
-		<tr>
-		<td>     <label class="control-label" for="inputPassword">Password:</label> </td>
-       	<div class="control"><td> 
-		
-		<input type="password" name="password" placeholder="Password" required="required" /></td>
-		
-		</div>
-		</tr>
-		
-		
-		</div>
-		
-	<div class="control-group">
-		<tr>
-		<td  align="left">
-        <button type="submit"  name="submit" class="btn btn-primary ">Log in.</button>
-      </td>
-	  </tr>
-	  
-	  </div>
-	  
-	 
-	  
-	  
-	  
-	  
-    </form>
-	
-	
-	<div class="control-group">
-	  
-	  
-	  	
-<tr>
-	  <td  align="left">
-        <a href="register.php"> <button  class="btn btn-primary ">Register.</button></a>
-      </td>
-	  
-	  
-	  
-		<td  align="right">
-		<a href="forgot_password.php"> <button  class="btn btn-primary "> Forgot Password? </button> </a>
-		</td>
-		
-	</tr>
-	</div>
-	</table>
-	
-
-	
-	
-	</div>
-	</div>
-	</div>
-
-  
+                    
+                </form>
+            </div>
+        </div>
+    </main>
     <script src="js/index.js"></script>
-</div>
-</div>
-</div>
-
 </body>
 </html>

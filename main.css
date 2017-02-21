@@ -1,0 +1,152 @@
+#Cont {
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.h100 {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    
+}
+ul.side-bar {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+ul.side-bar li{
+    padding: 12px 15px;
+    
+}
+.no-margin {
+    margin: 0;
+}
+.mat-chat-cont {
+    height: 100%;
+    width: 100%;
+    overflow: hidden
+}
+
+.scroll-overflow {
+    overflow-y: scroll !Important;
+    
+}
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+html { width: 100%; height:100%; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background:#f0f0f0;
+	color:#770202;
+}
+.chatbox {
+    display: block;
+}
+.chatbox-action-bottom {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+}
+.no-padding {
+    padding: 0 !Important;
+}
+
+.msgs {
+    padding: 0 0.75rem;
+    margin-bottom: 110px;
+    margin-top: 20px;
+}
+
+.msg {
+    max-width: 78%;
+    min-width: auto;
+    height: auto;
+	padding: 5px 6px;
+    background-color: #b1dcfb;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+    box-shadow: 0px 1px 1px #e5e5e5;
+}
+.msg:before {
+    position: absolute;
+    left: -6px;
+    bottom: 0;
+    background-color: inherit;
+    height: 0px;
+    border-color: aqua;
+    
+}
+.chatname {
+    width: auto;
+    font-size: 14px;
+    opacity: .68;
+    color: #212121;
+}
+
+.msg-date {
+    
+    opacity: .38;
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+}
+
+.msg-data {
+    
+    padding: 6px 0px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000;
+    margin-bottom: 10px;
+    
+}
+.msg .actions{
+    width: 100%;
+    height: auto;
+    
+}
+
+.actions a.reply-btn {
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 3px;
+    color: #EEEEEE;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 60%;
+    background-color: #78909C;
+    
+}
+
+.msg .reply-text-card {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    padding: 6px;
+    background-color: rgba(0, 0, 0, 0.08);
+    margin: 4px;
+    margin-top: 8px;
+}
+
+.btn.btn-small {
+    padding: 0 .7rem !Important;
+    height: 28px !Important;
+    line-height: 28px !Important;
+    cursor: pointer;
+}
+
+

@@ -26,17 +26,17 @@ $sql2=$dbh->prepare("SELECT first_name FROM users where user_id='$id'");
 $sql2->execute();
 $na=$sql2->fetch();
 
-$e .= "<div data-message-id='{$r['Message_id']}' class='msg messages' title='{$r['posted']}'>";
-$e .= "<div id='chatname'><i class='glyphicon glyphicon-trash'></i>";
+$e .= "<div data-message-id='{$r['Message_id']}' class='msg' title='{$r['posted']}'>";
+$e .= "<div class='chatname'>";
 $e .= "{$na['first_name']} ~ ";
-$e .= "{$r['posted']}";
-
 $e .= "</div>";
+$e .= "<span class='msg-date'>{$r['posted']}</span>";
 
-$e .= "<div id='msgd'><span class='msgc'>{$r['msg']}</span></div> "; 
+
+$e .= "<div class='msg-data'>{$r['msg']}</div> "; 
 
 $e .= "<div class='actions'>";
-$e .= "<button data-message-id='{$r['Message_id']}' class='reply-btn' >Comment:</button> ";
+$e .= "<a data-message-id='{$r['Message_id']}' class='reply-btn' >Comment</a> ";
 $e .= "</div>";
 
 echo $e; 
@@ -57,19 +57,19 @@ $sender=$sql3->fetch();
 $rep3 =$reply->columnCount();
   
 //var_dump($replies);
- $r="<div data-message-id='{$replies['Message_id']}' class='replyy2'>";	
+ $r ="<div data-message-id='{$replies['Message_id']}' class='reply-text-card'>";	
  
- $r .= " <div id='chatname'><i class='glyphicon glyphicon-trash'></i>";
- $r .= "<span class='name'>{$sender['first_name']} </span>~    ";
- $r .= "{$replies['posted']} </div>";
- $r .= "<div id='msgd'><span class='msgc'>{$replies['msg']}</span></div></div>";
+ $r .= " <div class='chatname'><i class='glyphicon glyphicon-trash'></i>";
+ $r .= "<span class='name'>{$sender['first_name']} </span></div>";
+$e .= "<span class='msg-date'>{$replies['posted']}</span>";
+ $r .= "<div id='msg-data'><span class='msgc'>{$replies['msg']}</span></div></div>";
  echo $r;
 }
 echo '</div>';
     
 }
 
-    $l++;
+//    $l++;
     
 }
 if(!isset($_SESSION['user']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])=='xmlhttprequest'){

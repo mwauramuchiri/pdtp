@@ -51,8 +51,8 @@ header('Location:rooms.php');
         <br>
         <br>
         <div class="container">
-            <a href="#" class="brand-logo">
-                <img  width="100%" src="header.png">
+            <a href="#" class="brand-logo center-align">
+                <img  height="50" class="" src="header.png">
             </a>
             <br>
             <br>
@@ -73,12 +73,12 @@ header('Location:rooms.php');
                                 <p>Please provide your username and password</p>
                             </div>
                             <div class="col s12 input-field">
-                                <input type="text" name="username" id="username" required="required" />
-                                <label for="username">Username / Email :</label>
+                                <input type="text" name="username" placeholder="Username" autocomplete="off" id="username" required="required" />
+<!--                                <label for="username">Username / Email :</label>-->
                             </div>
                             <div class="col s12 input-field">
-                                <input type="password" name="password" required="required" />
-                                <label for="password">Password:</label>
+                                <input type="password" name="password" placeholder="Password" autocomplete="off" required="required" />
+<!--                                <label for="password">Password:</label>-->
                             </div>
                             <div class="col s12 input-field">
                                 <button class="btn" type="submit" name="submit">Login</button>
@@ -97,6 +97,6 @@ header('Location:rooms.php');
             </div>
         </div>
     </main>
-    <script src="js/index.js"></script>
+<!--    <script src="js/index.js"></script>-->
 </body>
 </html>

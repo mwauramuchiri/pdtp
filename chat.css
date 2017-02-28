@@ -95,6 +95,74 @@ body {
 	
 	
 }
+div.attag{	
+position: absolute;
+padding-bottom:0;
+margin-bottom:0; 
+margin-left:3%;
+width:70%;
+background:#ffffff;
+border:1px solid   #f8f9f9;
+
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+bottom: 0;
+}
+
+
+div.attag ul   {  
+margin: 0 0 0;
+padding-left: 0%;
+width: auto;
+list-style: none;
+font-size: 2.4 em;
+
+
+}
+
+
+div.new p{
+text-align:center;
+color:red ; 
+opacity:1;
+}
+
+
+div.attag ul li:hover  {  
+
+background-color:#770202 ;
+cursor: pointer; 
+cursor: hand;
+}
+div.attag ul li:first-child:hover {  
+
+background-color:#770202;
+
+border-top-left-radius: 5px;
+-webkit-border-top-left-radius: 5px;
+-moz-border-top-left-radius: 5px;
+
+border-top-right-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-top-right-radius: 5px;
+}
+div.attag ul li:last-child:hover  {  
+
+background-color:#770202;
+
+border-bottom-left-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-bottom-left-radius: 5px;
+
+border-bottom-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-bottom-right-radius: 5px;
+
+}
+
+
+
 .chat .users, .chat .chatbox ,.chat .userspic, .chat.profile{
  display:inline-block;
  vertical-align:top;

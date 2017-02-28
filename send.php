@@ -6,6 +6,7 @@ if(!isset($_SESSION['user']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])=='
 if(isset($_SESSION['user']) && isset($_POST['msg'])){
  
  $msg=htmlspecialchars($_POST['msg']);
+
  $name=$_SESSION['user'];
  $sender=$_SESSION['user_id'];
   if($msg!=""){

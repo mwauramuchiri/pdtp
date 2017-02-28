@@ -15,112 +15,130 @@ include("login.php");
 <!DOCTYPE html>
 <html>
  <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-	
  <script type="text/javascript" src="jquery-2.0.0.min.js"></script>
- <script type="text/javascript" src="chat.js"></script>
+<!--  <script src="//code.jquery.com/jquery-latest.js"></script>-->
   
-  <link href="materialize.css" rel="stylesheet"/>
+  
+  
+<!--  <script src="chat.js"></script>-->
   <link href="main.css" rel="stylesheet"/>
+  <link href="materialize.css" rel="stylesheet"/>
+<!--  <link href="chat.css" rel="stylesheet"/>-->
+<!--  <link href="bootstrap.css" rel="stylesheet"/>-->
+<!--  <link href="bootstrap-responsive.css" rel="stylesheet"/>-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <?php
+
+     $_SESSION['user'] = 'talent';
+?>
    
   
   <title>Pass it on </title>
  </head>
  <body>
-     <main  id="Cont">
-         <!-- Page Layout here -->
-    <div class="row h100">
 
-      <div class="col s12 l2 grey darken-1 h100 hide-on-med-and-down">
-          
-             <ul class="side-bar">
-                 <li class="logo">
-                    <img class="logo" src="ema%20logo-small-01.png" width="100%"/>
-                 </li>
-             <br>
-             <br>
-                <?php 
-                 if(isset($_SESSION['user'])){
-                    echo '<li class="">';
-                    echo $_SESSION['user'];
-                    echo '</li>';
+     <main class="row chat-dom">
+         <div class=" col chat-side-nav hide-on-med-and-down no-padding">
+             <div class="main">
+                 <div class="user-info row">
+                     <div class="col no-padding">
+                         <a class="account-icon">
+                             <img src="pics/THINKING.jpg">
+                         </a>
+                     </div>
+                     <div class="col no-padding">
+                         <p class="full-name">Gabriel Muchiri</p>
+                         <p class="user-name">@mwauramuchiri</p>
+                     </div>
+                 </div>
+                 <br>
+                 <div class="chat-info row white-text <?php echo $_SESSION['user']; ?>">
+                     <h6 class="center-align title">
+                         <?php echo $_SESSION['user']; ?> chat room
+                     </h6>
+                     <br>
+                     <a href="leave.php" class="underline white-text">Leave chat room</a>
+                     <div class="bg"></div>
+                 </div>
+                 <br>
+                 <div class="section-bar js-mentions-container">
+                     <p class="title">
+                         Mentions
+                         <span class="badge <?php echo $_SESSION['user']; ?>">new</span>
+                     </p>
+                     <div class="divider"></div>
+                     <div class="data">
+                         <ul>
+                             <li data-message-id="24">
+                                 <a class="user-name">@mwauramuchiri</a>
+                                 <span class="text">
+                                     I hope you won't have anything going on in
+                                     the supermarket.
+                                 </span>
+                             </li>
+                             <li class="divider"></li>
+                             <li data-message-id="24">
+                                 <a class="user-name">@mwauramuchiri</a>
+                                 <span class="text">
+                                     I hope you won't have anything going on in
+                                     the supermarket.
+                                 </span>
+                             </li>
+                             <li class="divider"></li>
+                             <li data-message-id="24">
+                                 <a class="user-name">@mwauramuchiri</a>
+                                 <span class="text">
+                                     I hope you won't have anything going on in
+                                     the supermarket.
+                                 </span>
+                             </li>
+                             <li class="divider"></li>
+                             <li data-message-id="24">
+                                 <a class="user-name">@mwauramuchiri</a>
+                                 <span class="text">
+                                     I hope you won't have anything going on in
+                                     the supermarket.
+                                 </span>
+                             </li>
+                             <li class="divider"></li>
+                         
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+             <div class="footer">
+<!--                 <a class="center-align" href="logout.php">Log out</a>-->
+                 <p class=" footer-text inline center-align">
+                      <a class="report-link inline" href="">Report abuse</a>
+                     |
+                     <a class="report-link inline" href="">About</a>
+                     |
+                     <a class="report-link inline" href="">T&C</a>
+                 </p>
+             </div>
+         </div>
+         <div class=" col chat-bar no-padding">
+             <div class="chat">  
+                <div class="chatbox">
+                    <?php
+                    
+//                    $_SESSION['user'] = 'career';
+                    
+                    if(isset($_SESSION['user'])){
 
-                }else{
+                        include("chatbox.php");
+                    }else{
 
-                    echo '<li class="card red lighten-4">';
-                    echo "<span class='white-text'>You have not chossen a room</span>";
-                    echo '</li>';
-                 }
+                        $display_case=true;
 
-                ?>
+                        include("login.php");
+                    }
 
-                <li>
-                    <a class="white-text" href="logout.php">Chat Rooms</a>
-                 </li>
+                    ?>
 
-                <li>
-                    <a class="white-text" href="profile.php">My Profile</a>
-                 </li>
-
-             </ul>
-
-      </div>
-
-      <div class="col s12 l10 h100 grey lighten-5 no-padding">
-          
-        <div class="mat-chat-cont scroll-overflow"> 
-
-            <div class="navbar-fixed hide-on-large-only">
-                <nav>
-                    <div class="nav-wrapper blue-grey darken-3">
-                        <ul class="left">
-                            <li><a href="logout.php" class=""><i class="material-icons">&#xE5C4;</i></a></li>
-                        </ul>
-                        <a href="#!" class="brand-logo ">
-                            <img class="logo" src="ema%20logo-small-01.png" height="64px"/>
-                        </a>
-                        <ul class="right">
-                            <li><a href="#!"><i class="material-icons">&#xE8E1;</i></a></li>
-                            <li><a href="profile.php"><i class="material-icons">&#xE853;</i></a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="row hide">
-                <br>
-                <div class="col s12 m4">
-                    <a href="logout.php" class="btn btn-flat">Leave Chat room</a>
-                </div>
-                <div class="col s12 m4">
-                    <h5 class="title">Pass it on chat room</h5>
-                </div>
-            </div> 
-            <div class="chatbox ">
-
-            <?php
-
-            if(isset($_SESSION['user'])){
-
-                include("chatbox.php");
-
-            }else{
-
-                $display_case=true;
-                include("login.php");
-
-            }
-            ?>
-            
-            </div>
-        </div>
-
-      </div>
-
-    </div>
+                </div>   
+             </div>
+         </div>
          
      </main>
  </body>

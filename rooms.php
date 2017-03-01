@@ -34,7 +34,8 @@ include("login.php");
  <body>
   <?php
 
-//     $_SESSION['user'] = 'talent';
+//     $_SESSION['user'] = 'entreprenuership';
+     
      if(isset($_SESSION['user'])) {
 ?>
 

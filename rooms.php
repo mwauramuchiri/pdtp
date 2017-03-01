@@ -27,15 +27,16 @@ include("login.php");
 <!--  <link href="bootstrap.css" rel="stylesheet"/>-->
 <!--  <link href="bootstrap-responsive.css" rel="stylesheet"/>-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <?php
-
-     $_SESSION['user'] = 'talent';
-?>
    
   
   <title>Pass it on </title>
  </head>
  <body>
+  <?php
+
+//     $_SESSION['user'] = 'talent';
+     if(isset($_SESSION['user'])) {
+?>
 
      <main class="row chat-dom">
          <div class=" col chat-side-nav hide-on-med-and-down no-padding">
@@ -123,16 +124,8 @@ include("login.php");
                     <?php
                     
 //                    $_SESSION['user'] = 'career';
-                    
-                    if(isset($_SESSION['user'])){
 
                         include("chatbox.php");
-                    }else{
-
-                        $display_case=true;
-
-                        include("login.php");
-                    }
 
                     ?>
 
@@ -141,5 +134,15 @@ include("login.php");
          </div>
          
      </main>
+     <?php
+
+        } else {
+
+            $display_case=true;
+
+            include("login.php");
+        }
+
+        ?>
  </body>
 </html>

@@ -28,13 +28,13 @@ $sql2->execute();
 $na=$sql2->fetch();
 
 $e .= "<div data-message-id='{$r['Message_id']}' class='msg messages' title='{$r['posted']}'>";
-$e .= "<div id='chatname'><i class='glyphicon glyphicon-trash'></i>";
-$e .= "{$na['first_name']} ~ ";
+$e .= "<div class='chatname'><i class='glyphicon glyphicon-trash'></i>";
+$e .= "{$na['first_name']}";
 $e .= "{$r['posted']}";
 
 $e .= "</div>";
 
-$e .= "<div id='msgd'><span class='msgc'>{$r['msg']}</span></div> "; 
+$e .= "<div class='msgd'><span class='msgc'>{$r['msg']}</span></div> ";
 
 $e .= "<div class='actions'>";
 $e .= "<button data-message-id='{$r['Message_id']}' class='reply-btn' >Comment:</button> ";
@@ -48,8 +48,8 @@ $rep =$reply->columnCount();
     
 if($rep > 0){
 	
-while($replies=$reply->fetch()){
-	$reply_id=$replies['sender'];
+{
+	$reply_id=$rep['sender'];
 
 $sql3=$dbh->prepare("SELECT first_name FROM users where user_id='$reply_id'");	
 $sql3->execute();
@@ -58,12 +58,12 @@ $sender=$sql3->fetch();
 $rep3 =$reply->columnCount();
   
 //var_dump($replies);
- $r="<div data-message-id='{$replies['Message_id']}' class='replyy2'>";	
+ $r="<div data-message-id='{$rep['Message_id']}' class='replyy2'>";
  
  $r .= " <div id='chatname'><i class='glyphicon glyphicon-trash'></i>";
- $r .= "<span class='name'>{$sender['first_name']} </span>~    ";
- $r .= "{$replies['posted']} </div>";
- $r .= "<div id='msgd'><span class='msgc'>{$replies['msg']}</span></div></div>";
+ $r .= "<span class='name'>{$sender['first_name']} </span>";
+ $r .= "{$rep['posted']} </div>";
+ $r .= "<div id='msgd'><span class='msgc'>{$rep['msg']}</span></div></div>";
  echo $r;
 }
 echo '</div>';

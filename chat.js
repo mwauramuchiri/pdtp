@@ -4,7 +4,10 @@ var mentioned=new Array();
 
 
   function scTop(){
- $(".msgs").animate({scrollTop:$(".msgs")[0].scrollHeight});
+
+
+ $(".chat-bar").animate({scrollTop:$(".chat-bar")[0].scrollHeight});
+
 }
 function load_messages(){
     
@@ -14,8 +17,8 @@ function load_messages(){
    scTop();
   }
  });
- $(".users").load("users.php"); 
-    
+ $(".me").load("app.php");
+   // scTop();
 }
 
   function load_new_messages(){
@@ -32,7 +35,7 @@ if(data ==''){
 console.log("there is new messag now");
 if($(".new").length ==0){
 console.log("div class new does not exist");
-$(".msgs").append("<div  class='new'><p >new message(s)</p></div>");
+$(".msgs").append("<div  class='new'> <div  class='newmessage one'><hr></div><div  class='newmessage two'>new message(s)</div> <div  class='newmessage three'><hr></div></div>");
 }else{
 
 console.log("div class new exists");
@@ -53,7 +56,6 @@ scTop();
  var val_reply = document.getElementById('msg2').value;
  var val_id = document.getElementById('messageid').value;
 	  if(val_id!=""){
-	  	alert(mentioned);
 					 
 	  $.post("send.php",{msg2:val_reply,messageid:val_id},function(){
     
@@ -112,7 +114,7 @@ $('.inputext').keydown(function(event){
 							
 						} else {
 							$('.attag').hide();
-							//$('.attag').html('');
+							$('.attag').html('');
 						}
 
 						
@@ -181,15 +183,15 @@ if (event.which === 32 ){
 
 			if(val.username.search(myexp) !=-1 ){
 			 
-			 output +="<li  class='"+val.sen+"'><a>";
+			 output +="<li  class='"+val.sen+"'>";
 			 output += val.username+": "+val.fname+" . "+val.sname;
-		 output +="</a></li>";	
+		 output +="</li>";
 			}
 		});
 	      output +="</ul>";
 	      //console.log(output);
 	
-		$(div).insertAfter('.span10');
+		$(div).insertBefore('.form-bar');
 		$('.attag').html(output);
 		
 		});
@@ -202,9 +204,11 @@ if (event.which === 32 ){
 //function triggered by clicking the users
 function addText(event) {
     var targ = event.target || event.srcElement;
+	console.log(targ);
     var val=$('.inputext').val();
   var index = parseInt(val.lastIndexOf('@'));
             var id4= targ.getAttribute("class");
+			//console.log("nugu");
       mentioned.push(id4);      
   var length=parseInt(val.length);
   var del=length-index;
@@ -217,8 +221,8 @@ function addText(event) {
    
    //alert(mentioned);
 //   you have logged out
-    $('.attag').hide();
-     $('.attag').html('');
+  $('.attag').hide();
+  //   $('.attag').html('');
     }
 
 
@@ -226,6 +230,17 @@ function addText(event) {
 
 
 //handles replies.
+
+
+ $(document).on("click", "button.reply_upvote", function(){
+
+    var c = $(this).attr('data-message-id');
+
+	console.log(c);
+  });
+
+
+
  $(document).on("click", "button.reply-btn", function(){
 	 
     var c = $(this).attr('data-message-id');
@@ -253,14 +268,14 @@ function addText(event) {
   });//end of replying
 
 		
-load_messages();
+//load_messages();
 //interval to reload nessages
 //SELECT `posted` FROM `messages` ORDER BY `posted` DESC LIMIT 1 
   var interv = 0;
 
 var tn= setInterval(function(){
  
-    load_new_messages();
+    load_messages();
     
 },1000);
 

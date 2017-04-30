@@ -22,6 +22,7 @@ include("login.php");
 <!DOCTYPE html>
 <html>
  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
  <script type="text/javascript" src="jquery-2.0.0.min.js"></script>
  <script src="//code.jquery.com/jquery-latest.js"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

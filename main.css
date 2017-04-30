@@ -460,6 +460,19 @@ a.account-icon img {
     width: 100%;
     border-radius: 0;
   }
+
+  .form-bar {
+    padding-left: 16px !Important;
+    padding-right: 16px !Important;
+  }
+
+  .msgs23, .msgs {
+    padding-left: 16px;
+  }
+
+  .msg {
+    max-width: 88%;
+  }
 }
 @media only screen and (max-width: 992px) {
   .section-card {
@@ -826,6 +839,6 @@ span.badge.career,span.badge.talent,span.badge.entreprenuership,span.badge.volun
 }
 
 form#msg_form input[type='text'] {
-    width: 80%;
+    width: 77%;
     margin-bottom: 10px !Important;
 }
